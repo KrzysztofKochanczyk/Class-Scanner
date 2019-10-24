@@ -1,0 +1,193 @@
+# this is an auto generated file. This will be overwritten
+subscription OnCreateTodo {
+  onCreateTodo {
+    id
+    name
+    description
+  }
+}
+subscription OnUpdateTodo {
+  onUpdateTodo {
+    id
+    name
+    description
+  }
+}
+subscription OnDeleteTodo {
+  onDeleteTodo {
+    id
+    name
+    description
+  }
+}
+subscription OnCreateUser {
+  onCreateUser {
+    id
+    userName
+    userFName
+    userLName
+    userEmail
+    userPassword
+    userCourses {
+      id
+      courseName
+      courseCRN
+      courseDescription
+      courseStartTime
+      courseEndTime
+      courseStudents {
+        id
+        studentFName
+        studentLName
+        studentJNumber
+        studentBarcode
+        studentTimeIn
+        studentAttendance
+      }
+    }
+  }
+}
+subscription OnUpdateUser {
+  onUpdateUser {
+    id
+    userName
+    userFName
+    userLName
+    userEmail
+    userPassword
+    userCourses {
+      id
+      courseName
+      courseCRN
+      courseDescription
+      courseStartTime
+      courseEndTime
+      courseStudents {
+        id
+        studentFName
+        studentLName
+        studentJNumber
+        studentBarcode
+        studentTimeIn
+        studentAttendance
+      }
+    }
+  }
+}
+subscription OnDeleteUser {
+  onDeleteUser {
+    id
+    userName
+    userFName
+    userLName
+    userEmail
+    userPassword
+    userCourses {
+      id
+      courseName
+      courseCRN
+      courseDescription
+      courseStartTime
+      courseEndTime
+      courseStudents {
+        id
+        studentFName
+        studentLName
+        studentJNumber
+        studentBarcode
+        studentTimeIn
+        studentAttendance
+      }
+    }
+  }
+}
+subscription OnCreateCourses {
+  onCreateCourses {
+    id
+    courseName
+    courseCRN
+    courseDescription
+    courseStartTime
+    courseEndTime
+    courseStudents {
+      id
+      studentFName
+      studentLName
+      studentJNumber
+      studentBarcode
+      studentTimeIn
+      studentAttendance
+    }
+  }
+}
+subscription OnUpdateCourses {
+  onUpdateCourses {
+    id
+    courseName
+    courseCRN
+    courseDescription
+    courseStartTime
+    courseEndTime
+    courseStudents {
+      id
+      studentFName
+      studentLName
+      studentJNumber
+      studentBarcode
+      studentTimeIn
+      studentAttendance
+    }
+  }
+}
+subscription OnDeleteCourses {
+  onDeleteCourses {
+    id
+    courseName
+    courseCRN
+    courseDescription
+    courseStartTime
+    courseEndTime
+    courseStudents {
+      id
+      studentFName
+      studentLName
+      studentJNumber
+      studentBarcode
+      studentTimeIn
+      studentAttendance
+    }
+  }
+}
+subscription OnCreateStudents {
+  onCreateStudents {
+    id
+    studentFName
+    studentLName
+    studentJNumber
+    studentBarcode
+    studentTimeIn
+    studentAttendance
+  }
+}
+subscription OnUpdateStudents {
+  onUpdateStudents {
+    id
+    studentFName
+    studentLName
+    studentJNumber
+    studentBarcode
+    studentTimeIn
+    studentAttendance
+  }
+}
+subscription OnDeleteStudents {
+  onDeleteStudents {
+    id
+    studentFName
+    studentLName
+    studentJNumber
+    studentBarcode
+    studentTimeIn
+    studentAttendance
+  }
+}

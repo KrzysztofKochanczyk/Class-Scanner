@@ -1,0 +1,35 @@
+type Todo @model {
+  id: ID!
+  name: String!
+  description: String
+}
+
+type User @model {
+	id: ID!
+	userName: String! 
+	userFName: String!
+	userLName: String!
+	userEmail: String!
+	userPassword: String!
+	userCourses: [Courses]
+}
+
+type Courses @model{
+	id: ID!
+	courseName: String!
+	courseCRN: Int! 
+	courseDescription: String! 
+	courseStartTime: Int!
+	courseEndTime: Int!
+	courseStudents: [Students]
+}
+
+type Students @model{
+	id:ID!
+	studentFName: String!
+	studentLName: String!
+	studentJNumber: String!
+	studentBarcode: Int!
+	studentTimeIn: Int!
+	studentAttendance: Int!
+}
