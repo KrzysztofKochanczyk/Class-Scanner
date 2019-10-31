@@ -31,10 +31,10 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        mAWSAppSyncClient = AWSAppSyncClient.builder()
-                .context(getApplicationContext())
-                .awsConfiguration(new AWSConfiguration(getApplicationContext()))
-                .build();
+        //mAWSAppSyncClient = AWSAppSyncClient.builder()
+        //        .context(getApplicationContext())
+        //        .awsConfiguration(new AWSConfiguration(getApplicationContext()))
+        //        .build();
     }
 
 
