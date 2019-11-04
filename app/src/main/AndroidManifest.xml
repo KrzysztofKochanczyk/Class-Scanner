@@ -20,8 +20,8 @@
 <!--        <service android:name="org.eclipse.paho.android.service.MqttService" />-->
         <activity android:name=".Main2Activity"></activity>
         <activity android:name=".MainActivity"></activity>
-        <activity android:name=".TrimesterActivity"></activity>
-        <activity android:name=".LoginActivity">
+        <!--<activity android:name=".TrimesterActivity"></activity>-->
+        <activity android:name=".TrimesterActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
