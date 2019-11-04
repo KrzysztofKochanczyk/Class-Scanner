@@ -28,23 +28,6 @@ subscription OnCreateUser {
     userLName
     userEmail
     userPassword
-    userCourses {
-      id
-      courseName
-      courseCRN
-      courseDescription
-      courseStartTime
-      courseEndTime
-      courseStudents {
-        id
-        studentFName
-        studentLName
-        studentJNumber
-        studentBarcode
-        studentTimeIn
-        studentAttendance
-      }
-    }
   }
 }
 subscription OnUpdateUser {
@@ -55,23 +38,6 @@ subscription OnUpdateUser {
     userLName
     userEmail
     userPassword
-    userCourses {
-      id
-      courseName
-      courseCRN
-      courseDescription
-      courseStartTime
-      courseEndTime
-      courseStudents {
-        id
-        studentFName
-        studentLName
-        studentJNumber
-        studentBarcode
-        studentTimeIn
-        studentAttendance
-      }
-    }
   }
 }
 subscription OnDeleteUser {
@@ -82,80 +48,39 @@ subscription OnDeleteUser {
     userLName
     userEmail
     userPassword
-    userCourses {
-      id
-      courseName
-      courseCRN
-      courseDescription
-      courseStartTime
-      courseEndTime
-      courseStudents {
-        id
-        studentFName
-        studentLName
-        studentJNumber
-        studentBarcode
-        studentTimeIn
-        studentAttendance
-      }
-    }
   }
 }
 subscription OnCreateCourses {
   onCreateCourses {
     id
+    courseTeacherName
     courseName
     courseCRN
     courseDescription
     courseStartTime
     courseEndTime
-    courseStudents {
-      id
-      studentFName
-      studentLName
-      studentJNumber
-      studentBarcode
-      studentTimeIn
-      studentAttendance
-    }
   }
 }
 subscription OnUpdateCourses {
   onUpdateCourses {
     id
+    courseTeacherName
     courseName
     courseCRN
     courseDescription
     courseStartTime
     courseEndTime
-    courseStudents {
-      id
-      studentFName
-      studentLName
-      studentJNumber
-      studentBarcode
-      studentTimeIn
-      studentAttendance
-    }
   }
 }
 subscription OnDeleteCourses {
   onDeleteCourses {
     id
+    courseTeacherName
     courseName
     courseCRN
     courseDescription
     courseStartTime
     courseEndTime
-    courseStudents {
-      id
-      studentFName
-      studentLName
-      studentJNumber
-      studentBarcode
-      studentTimeIn
-      studentAttendance
-    }
   }
 }
 subscription OnCreateStudents {
@@ -167,6 +92,7 @@ subscription OnCreateStudents {
     studentBarcode
     studentTimeIn
     studentAttendance
+    studentCourseCRN
   }
 }
 subscription OnUpdateStudents {
@@ -178,6 +104,7 @@ subscription OnUpdateStudents {
     studentBarcode
     studentTimeIn
     studentAttendance
+    studentCourseCRN
   }
 }
 subscription OnDeleteStudents {
@@ -189,5 +116,6 @@ subscription OnDeleteStudents {
     studentBarcode
     studentTimeIn
     studentAttendance
+    studentCourseCRN
   }
 }

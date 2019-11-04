@@ -28,23 +28,6 @@ query GetUser($id: ID!) {
     userLName
     userEmail
     userPassword
-    userCourses {
-      id
-      courseName
-      courseCRN
-      courseDescription
-      courseStartTime
-      courseEndTime
-      courseStudents {
-        id
-        studentFName
-        studentLName
-        studentJNumber
-        studentBarcode
-        studentTimeIn
-        studentAttendance
-      }
-    }
   }
 }
 query ListUsers(
@@ -60,14 +43,6 @@ query ListUsers(
       userLName
       userEmail
       userPassword
-      userCourses {
-        id
-        courseName
-        courseCRN
-        courseDescription
-        courseStartTime
-        courseEndTime
-      }
     }
     nextToken
   }
@@ -75,20 +50,12 @@ query ListUsers(
 query GetCourses($id: ID!) {
   getCourses(id: $id) {
     id
+    courseTeacherName
     courseName
     courseCRN
     courseDescription
     courseStartTime
     courseEndTime
-    courseStudents {
-      id
-      studentFName
-      studentLName
-      studentJNumber
-      studentBarcode
-      studentTimeIn
-      studentAttendance
-    }
   }
 }
 query ListCoursess(
@@ -99,20 +66,12 @@ query ListCoursess(
   listCoursess(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
+      courseTeacherName
       courseName
       courseCRN
       courseDescription
       courseStartTime
       courseEndTime
-      courseStudents {
-        id
-        studentFName
-        studentLName
-        studentJNumber
-        studentBarcode
-        studentTimeIn
-        studentAttendance
-      }
     }
     nextToken
   }
@@ -126,6 +85,7 @@ query GetStudents($id: ID!) {
     studentBarcode
     studentTimeIn
     studentAttendance
+    studentCourseCRN
   }
 }
 query ListStudentss(
@@ -142,6 +102,7 @@ query ListStudentss(
       studentBarcode
       studentTimeIn
       studentAttendance
+      studentCourseCRN
     }
     nextToken
   }

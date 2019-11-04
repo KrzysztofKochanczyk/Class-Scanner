@@ -28,23 +28,6 @@ mutation CreateUser($input: CreateUserInput!) {
     userLName
     userEmail
     userPassword
-    userCourses {
-      id
-      courseName
-      courseCRN
-      courseDescription
-      courseStartTime
-      courseEndTime
-      courseStudents {
-        id
-        studentFName
-        studentLName
-        studentJNumber
-        studentBarcode
-        studentTimeIn
-        studentAttendance
-      }
-    }
   }
 }
 mutation UpdateUser($input: UpdateUserInput!) {
@@ -55,23 +38,6 @@ mutation UpdateUser($input: UpdateUserInput!) {
     userLName
     userEmail
     userPassword
-    userCourses {
-      id
-      courseName
-      courseCRN
-      courseDescription
-      courseStartTime
-      courseEndTime
-      courseStudents {
-        id
-        studentFName
-        studentLName
-        studentJNumber
-        studentBarcode
-        studentTimeIn
-        studentAttendance
-      }
-    }
   }
 }
 mutation DeleteUser($input: DeleteUserInput!) {
@@ -82,80 +48,39 @@ mutation DeleteUser($input: DeleteUserInput!) {
     userLName
     userEmail
     userPassword
-    userCourses {
-      id
-      courseName
-      courseCRN
-      courseDescription
-      courseStartTime
-      courseEndTime
-      courseStudents {
-        id
-        studentFName
-        studentLName
-        studentJNumber
-        studentBarcode
-        studentTimeIn
-        studentAttendance
-      }
-    }
   }
 }
 mutation CreateCourses($input: CreateCoursesInput!) {
   createCourses(input: $input) {
     id
+    courseTeacherName
     courseName
     courseCRN
     courseDescription
     courseStartTime
     courseEndTime
-    courseStudents {
-      id
-      studentFName
-      studentLName
-      studentJNumber
-      studentBarcode
-      studentTimeIn
-      studentAttendance
-    }
   }
 }
 mutation UpdateCourses($input: UpdateCoursesInput!) {
   updateCourses(input: $input) {
     id
+    courseTeacherName
     courseName
     courseCRN
     courseDescription
     courseStartTime
     courseEndTime
-    courseStudents {
-      id
-      studentFName
-      studentLName
-      studentJNumber
-      studentBarcode
-      studentTimeIn
-      studentAttendance
-    }
   }
 }
 mutation DeleteCourses($input: DeleteCoursesInput!) {
   deleteCourses(input: $input) {
     id
+    courseTeacherName
     courseName
     courseCRN
     courseDescription
     courseStartTime
     courseEndTime
-    courseStudents {
-      id
-      studentFName
-      studentLName
-      studentJNumber
-      studentBarcode
-      studentTimeIn
-      studentAttendance
-    }
   }
 }
 mutation CreateStudents($input: CreateStudentsInput!) {
@@ -167,6 +92,7 @@ mutation CreateStudents($input: CreateStudentsInput!) {
     studentBarcode
     studentTimeIn
     studentAttendance
+    studentCourseCRN
   }
 }
 mutation UpdateStudents($input: UpdateStudentsInput!) {
@@ -178,6 +104,7 @@ mutation UpdateStudents($input: UpdateStudentsInput!) {
     studentBarcode
     studentTimeIn
     studentAttendance
+    studentCourseCRN
   }
 }
 mutation DeleteStudents($input: DeleteStudentsInput!) {
@@ -189,5 +116,6 @@ mutation DeleteStudents($input: DeleteStudentsInput!) {
     studentBarcode
     studentTimeIn
     studentAttendance
+    studentCourseCRN
   }
 }
