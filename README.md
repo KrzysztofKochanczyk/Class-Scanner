@@ -1,4 +1,4 @@
-# ID-Scanner-iOS
+# Scanner-ID-Android
 The goal of this project is to create a mobile phone application that will scan students ID cards for attendance and maintain one full trimester’s attendance for all faculty members classes. Saving attendance as either present, absent or tardy.  As well as storing the teacher’s name, class name, trimester, week, student name / jnumber, and time for an entire trimester all in one database. 
 
 ## Table of Contents
