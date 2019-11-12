@@ -9,7 +9,9 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button b1;
+    Button scanBarcodeBtn;
+    Button scanJnumBtn;
+    Button manEnterBtn;
     //doing this will allow "tv1" to pass to other activities
     public static TextView tv1;
 
@@ -18,10 +20,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        b1 = (Button)findViewById(R.id.b1);
+        scanBarcodeBtn = (Button)findViewById(R.id.scanBarcodeBtn);
         tv1 = (TextView)findViewById(R.id.tv1);
 
-        b1.setOnClickListener(new View.OnClickListener() {
+        scanBarcodeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, Main2Activity.class));

@@ -7,33 +7,58 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/b1"
-        android:layout_width="183dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="114dp"
-        android:layout_marginLeft="114dp"
-        android:layout_marginEnd="114dp"
-        android:layout_marginRight="114dp"
-        android:layout_marginBottom="20dp"
-        android:text="Scan"
+        android:id="@+id/scanBarcodeBtn"
+        android:layout_width="155dp"
+        android:layout_height="44dp"
+        android:text="Scan Barcode"
         android:textAppearance="@style/TextAppearance.AppCompat.Button"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/tv1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:textSize="15sp"
+        tools:layout_editor_absoluteX="42dp"
+        tools:layout_editor_absoluteY="671dp" />
 
     <TextView
         android:id="@+id/tv1"
         android:layout_width="348dp"
         android:layout_height="68dp"
-        android:layout_marginStart="31dp"
-        android:layout_marginLeft="31dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginBottom="135dp"
         android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        tools:layout_editor_absoluteX="31dp"
+        tools:layout_editor_absoluteY="289dp" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="253dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="J number"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="25dp" />
+
+    <Button
+        android:id="@+id/manBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        android:text="Button"
+        tools:layout_editor_absoluteX="307dp"
+        tools:layout_editor_absoluteY="32dp" />
+
+    <Button
+        android:id="@+id/scanJnumBtn"
+        android:layout_width="155dp"
+        android:layout_height="44dp"
+        android:text="scan J number"
+        android:textSize="15sp"
+        tools:layout_editor_absoluteX="224dp"
+        tools:layout_editor_absoluteY="671dp" />
+
+    <TextView
+        android:id="@+id/scanJnumTV"
+        android:layout_width="198dp"
+        android:layout_height="51dp"
+        android:text="Text"
+        tools:layout_editor_absoluteX="36dp"
+        tools:layout_editor_absoluteY="403dp" />
+
+
 
 </android.support.constraint.ConstraintLayout>
