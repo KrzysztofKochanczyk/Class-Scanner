@@ -1,4 +1,15 @@
 <resources>
     <string name="app_name">Barcode Scanner</string>
-    <string name="activity_trimester">Winter</string>
+
+    <string-array name="Class">
+        <item> Math</item>
+        <item> English</item>
+        <item> Whatelse</item>
+    </string-array>
+
+    <string-array name="Course">
+        <item> Course 1</item>
+        <item> Course 2</item>
+        <item> Course 3</item>
+    </string-array>
 </resources>
