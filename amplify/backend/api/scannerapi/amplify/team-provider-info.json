@@ -1,0 +1,26 @@
+{
+    "envapi": {
+        "awscloudformation": {
+            "AuthRoleName": "scannerapi-envapi-20191114121218-authRole",
+            "UnauthRoleArn": "arn:aws:iam::660570303239:role/scannerapi-envapi-20191114121218-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::660570303239:role/scannerapi-envapi-20191114121218-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "scannerapi-envapi-20191114121218-deployment",
+            "UnauthRoleName": "scannerapi-envapi-20191114121218-unauthRole",
+            "StackName": "scannerapi-envapi-20191114121218",
+            "StackId": "arn:aws:cloudformation:us-east-1:660570303239:stack/scannerapi-envapi-20191114121218/e9bbeb70-0701-11ea-92b1-0a73682547f5"
+        }
+    },
+    "androidapi": {
+        "awscloudformation": {
+            "AuthRoleName": "scannerapi-androidapi-20191114124932-authRole",
+            "UnauthRoleArn": "arn:aws:iam::660570303239:role/scannerapi-androidapi-20191114124932-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::660570303239:role/scannerapi-androidapi-20191114124932-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "scannerapi-androidapi-20191114124932-deployment",
+            "UnauthRoleName": "scannerapi-androidapi-20191114124932-unauthRole",
+            "StackName": "scannerapi-androidapi-20191114124932",
+            "StackId": "arn:aws:cloudformation:us-east-1:660570303239:stack/scannerapi-androidapi-20191114124932/1d2a0500-0707-11ea-bf05-0a0faac5843d"
+        }
+    }
+}

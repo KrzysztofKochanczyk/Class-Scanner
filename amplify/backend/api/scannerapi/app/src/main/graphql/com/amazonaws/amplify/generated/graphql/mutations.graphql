@@ -1,0 +1,100 @@
+# this is an auto generated file. This will be overwritten
+mutation CreateUser($input: CreateUserInput!) {
+  createUser(input: $input) {
+    id
+    userName
+    userFName
+    userLName
+    userEmail
+    userPassword
+  }
+}
+mutation UpdateUser($input: UpdateUserInput!) {
+  updateUser(input: $input) {
+    id
+    userName
+    userFName
+    userLName
+    userEmail
+    userPassword
+  }
+}
+mutation DeleteUser($input: DeleteUserInput!) {
+  deleteUser(input: $input) {
+    id
+    userName
+    userFName
+    userLName
+    userEmail
+    userPassword
+  }
+}
+mutation CreateCourses($input: CreateCoursesInput!) {
+  createCourses(input: $input) {
+    id
+    courseTeacherName
+    courseName
+    courseCRN
+    courseDescription
+    courseStartTime
+    courseEndTime
+  }
+}
+mutation UpdateCourses($input: UpdateCoursesInput!) {
+  updateCourses(input: $input) {
+    id
+    courseTeacherName
+    courseName
+    courseCRN
+    courseDescription
+    courseStartTime
+    courseEndTime
+  }
+}
+mutation DeleteCourses($input: DeleteCoursesInput!) {
+  deleteCourses(input: $input) {
+    id
+    courseTeacherName
+    courseName
+    courseCRN
+    courseDescription
+    courseStartTime
+    courseEndTime
+  }
+}
+mutation CreateStudents($input: CreateStudentsInput!) {
+  createStudents(input: $input) {
+    id
+    studentFName
+    studentLName
+    studentJNumber
+    studentBarcode
+    studentTimeIn
+    studentAttendance
+    studentCourseCRN
+  }
+}
+mutation UpdateStudents($input: UpdateStudentsInput!) {
+  updateStudents(input: $input) {
+    id
+    studentFName
+    studentLName
+    studentJNumber
+    studentBarcode
+    studentTimeIn
+    studentAttendance
+    studentCourseCRN
+  }
+}
+mutation DeleteStudents($input: DeleteStudentsInput!) {
+  deleteStudents(input: $input) {
+    id
+    studentFName
+    studentLName
+    studentJNumber
+    studentBarcode
+    studentTimeIn
+    studentAttendance
+    studentCourseCRN
+  }
+}

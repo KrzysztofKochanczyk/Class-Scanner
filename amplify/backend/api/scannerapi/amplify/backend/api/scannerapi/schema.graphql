@@ -1,0 +1,29 @@
+type User @model {
+	id: ID!
+	userName: String!
+	userFName: String!
+	userLName: String!
+	userEmail: String!
+	userPassword: String!
+}
+
+type Courses @model{
+	id: ID!
+	courseTeacherName: String!
+	courseName: String!
+	courseCRN: Int!
+	courseDescription: String!
+	courseStartTime: Int!
+	courseEndTime: Int!
+}
+
+type Students @model{
+	id:ID!
+	studentFName: String!
+	studentLName: String!
+	studentJNumber: String!
+	studentBarcode: Int!
+	studentTimeIn: Int!
+	studentAttendance: Int!
+	studentCourseCRN: Int!
+}

@@ -1,0 +1,100 @@
+# this is an auto generated file. This will be overwritten
+subscription OnCreateUser {
+  onCreateUser {
+    id
+    userName
+    userFName
+    userLName
+    userEmail
+    userPassword
+  }
+}
+subscription OnUpdateUser {
+  onUpdateUser {
+    id
+    userName
+    userFName
+    userLName
+    userEmail
+    userPassword
+  }
+}
+subscription OnDeleteUser {
+  onDeleteUser {
+    id
+    userName
+    userFName
+    userLName
+    userEmail
+    userPassword
+  }
+}
+subscription OnCreateCourses {
+  onCreateCourses {
+    id
+    courseTeacherName
+    courseName
+    courseCRN
+    courseDescription
+    courseStartTime
+    courseEndTime
+  }
+}
+subscription OnUpdateCourses {
+  onUpdateCourses {
+    id
+    courseTeacherName
+    courseName
+    courseCRN
+    courseDescription
+    courseStartTime
+    courseEndTime
+  }
+}
+subscription OnDeleteCourses {
+  onDeleteCourses {
+    id
+    courseTeacherName
+    courseName
+    courseCRN
+    courseDescription
+    courseStartTime
+    courseEndTime
+  }
+}
+subscription OnCreateStudents {
+  onCreateStudents {
+    id
+    studentFName
+    studentLName
+    studentJNumber
+    studentBarcode
+    studentTimeIn
+    studentAttendance
+    studentCourseCRN
+  }
+}
+subscription OnUpdateStudents {
+  onUpdateStudents {
+    id
+    studentFName
+    studentLName
+    studentJNumber
+    studentBarcode
+    studentTimeIn
+    studentAttendance
+    studentCourseCRN
+  }
+}
+subscription OnDeleteStudents {
+  onDeleteStudents {
+    id
+    studentFName
+    studentLName
+    studentJNumber
+    studentBarcode
+    studentTimeIn
+    studentAttendance
+    studentCourseCRN
+  }
+}
