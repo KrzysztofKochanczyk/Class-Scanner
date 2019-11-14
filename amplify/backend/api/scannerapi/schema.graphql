@@ -1,9 +1,3 @@
-type Todo @model {
-  id: ID!
-  name: String!
-  description: String
-}
-
 type User @model {
 	id: ID!
 	userName: String! 
@@ -11,17 +5,16 @@ type User @model {
 	userLName: String!
 	userEmail: String!
 	userPassword: String!
-	userCourses: [Courses]
 }
 
 type Courses @model{
 	id: ID!
+	courseTeacherName: String! 
 	courseName: String!
 	courseCRN: Int! 
 	courseDescription: String! 
 	courseStartTime: Int!
 	courseEndTime: Int!
-	courseStudents: [Students]
 }
 
 type Students @model{
@@ -32,4 +25,5 @@ type Students @model{
 	studentBarcode: Int!
 	studentTimeIn: Int!
 	studentAttendance: Int!
+	studentCourseCRN: Int!
 }
