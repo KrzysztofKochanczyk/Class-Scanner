@@ -6,4 +6,6 @@
     <color name="lightGrey">#D3D3D3</color>
     <color name="white">#ffffff</color>
     <color name="orange">#fca103</color>
+    <color name="yellow">#ffea00</color>
+    <color name="blue">#0077ff</color>
 </resources>

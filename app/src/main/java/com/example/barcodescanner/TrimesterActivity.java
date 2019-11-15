@@ -15,22 +15,19 @@ import android.widget.TextView;
 
 public class TrimesterActivity extends AppCompatActivity {
     //private to keep other classes from using them
-    private Toolbar toolbar;
-    private ListView listView;
+    Toolbar toolbar;
+    ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trimester);
 
-        setupUIViews();
-        initToolBar();
-        setupListView();
-    }
-
-    private void setupUIViews() {
         toolbar = (Toolbar)findViewById(R.id.triTB);
         listView = (ListView)findViewById(R.id.lvTri);
+
+        initToolBar();
+        setupListView();
     }
 
     private void initToolBar() {
