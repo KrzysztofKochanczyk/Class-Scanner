@@ -27,10 +27,21 @@ import type.CreateTodoInput;
 public class LoginActivity extends AppCompatActivity {
     private AWSAppSyncClient mAWSAppSyncClient;
 
+    Button login;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        login = (Button)findViewById(R.id.b1);
+
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this, TrimesterActivity.class));
+            }
+        });
         //mAWSAppSyncClient = AWSAppSyncClient.builder()
         //        .context(getApplicationContext())
         //        .awsConfiguration(new AWSConfiguration(getApplicationContext()))

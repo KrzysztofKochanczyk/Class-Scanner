@@ -223,7 +223,7 @@ public class JnumScanner extends AppCompatActivity {
                 //cropping image now
                 CropImage.activity(data.getData()).setGuidelines(CropImageView.Guidelines.ON).start(this);
             }
-            else if (requestCode == IMAGE_PICK_CAMERA_CODE)
+            if (requestCode == IMAGE_PICK_CAMERA_CODE)
             {
                 //same thing on top to this one
                 CropImage.activity(image_uri).setGuidelines(CropImageView.Guidelines.ON).start(this);

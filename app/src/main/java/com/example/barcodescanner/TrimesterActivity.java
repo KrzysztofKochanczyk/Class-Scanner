@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -41,6 +42,16 @@ public class TrimesterActivity extends AppCompatActivity {
 
         myAdapter simpleAdap = new myAdapter(this, clas, course);
         listView.setAdapter(simpleAdap);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //we can do a switch case if that makes it easy to push all the information inside of the view in the mainactivity
+                //which is where the students would get populated
+                Intent intent = new Intent(TrimesterActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public class myAdapter extends BaseAdapter {
