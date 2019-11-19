@@ -5,12 +5,30 @@
         <item> Math</item>
         <item> English</item>
         <item> Whatelse</item>
+        <item> what</item>
+        <item> if</item>
+        <item> it</item>
+        <item> doesnt</item>
+        <item> work</item>
+        <item> the</item>
+        <item> way</item>
+        <item> i</item>
+        <item> want it to</item>
     </string-array>
 
     <string-array name="Course">
         <item> Course 1</item>
         <item> Course 2</item>
         <item> Course 3</item>
+        <item> what</item>
+        <item> if</item>
+        <item> it</item>
+        <item> doesnt</item>
+        <item> work</item>
+        <item> the</item>
+        <item> way</item>
+        <item> i</item>
+        <item> want it to</item>
     </string-array>
 
     <string-array name="Students">

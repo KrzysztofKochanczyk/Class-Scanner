@@ -21,7 +21,7 @@
         <activity android:name=".Main2Activity"></activity>
         <activity android:name=".MainActivity"></activity>
         <activity android:name=".JnumScanner"></activity>
-        <activity android:name=".TrimesterActivity"></activity>
+        <activity android:name=".TrimesterActivity"> </activity>
         <!--<activity android:name=".TrimesterActivity"></activity>-->
         <activity android:name=".LoginActivity">
             <intent-filter>
@@ -31,13 +31,5 @@
             </intent-filter>
         </activity>
 
-        <meta-data android:name="com.google.android.gms.vision.DEPENDENCIES"
-            android:value="ocr"/>
-
-        <!--<activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
-            android:theme="@style/AppTheme">
-        </activity>-->
-
     </application>
-
 </manifest>

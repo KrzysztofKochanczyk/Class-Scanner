@@ -29,12 +29,23 @@
             android:textSize="18dp" />
 
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/day"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="5dp"
+            android:layout_below="@id/course"
+            android:text="Monday, Wednesday:"
+            android:textSize="12dp"/>
+
+        <TextView
             android:id="@+id/classTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/course"
-            android:layout_marginLeft="14dp"
+            android:layout_toRightOf="@id/day"
             android:layout_marginTop="5dp"
+            android:layout_marginLeft="8dp"
             android:text="11:30 - 2:34"
             android:textSize="12dp" />
         
