@@ -28,7 +28,9 @@ Getting started with this project you will need
 **DynamoDB** - https://aws.amazon.com/dynamodb/  
 
 ## <a name="running-tests"></a>Running the tests
-![LoginScreen](aid1.jpg)![CourseScreen](aid3.jpg)
+<a href="url"><img src="aid1.jpg" height="600" width="300" ></a>
+<a href="url"><img src="aid3.jpg" height="600" width="300" ></a>
+
 
 ## <a name="deployment"></a>Deployment
 To deploy the application as a live system would require connecting to any school database this would allow any teacher that’s a part of that database to connect to the application and allow them to use the application for attendance scanning. Manual input for the user would also allow the app to be used by any individual. 
