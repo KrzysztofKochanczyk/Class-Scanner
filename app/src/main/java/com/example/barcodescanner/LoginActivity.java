@@ -16,6 +16,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 
 public class LoginActivity extends AppCompatActivity {
@@ -23,7 +24,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText emailET, passwordET;
     private Button loginBtn;
     private FirebaseAuth fAuth;
-
+    private FirebaseAuth.AuthStateListener fAuthListner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,50 +40,45 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //for easy access to get inside app
-                startActivity(new Intent(LoginActivity.this, TrimesterActivity.class));
+                //startActivity(new Intent(LoginActivity.this, TrimesterActivity.class));
 
-//                //setting up login
-//                String email = emailET.getText().toString().trim();
-//                String password = passwordET.getText().toString().trim();
-//
-//                //checking to see if email is empty
-//                if (TextUtils.isEmpty(email))
-//                {
-//                    emailET.setError("Email is Required.");
-//                    return;
-//                }
-//                //checking to see if password is empty
-//                if (TextUtils.isEmpty(password))
-//                {
-//                    passwordET.setError("Password is Required.");
-//                    return;
-//                }
-//                //checking password length
-//                if (password.length() < 6)
-//                {
-//                    passwordET.setError("Password Must be >= 6 Characters");
-//                    return;
-//                }
-//
-//                //authenticate the user
-//                fAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<AuthResult> task) {
-//                        if (task.isSuccessful())
-//                        {
-//                            startActivity(new Intent(getApplicationContext(),TrimesterActivity.class));
-//                        }
-//                        else
-//                        {
-//                            Toast.makeText(LoginActivity.this, "Error " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-//                        }
-//                    }
-//                });
+                String email = emailET.getText().toString().trim();
+                String password = passwordET.getText().toString().trim();
+
+                //checking to see if email is empty
+                if (TextUtils.isEmpty(email))
+                {
+                    emailET.setError("Email is Required.");
+                    return;
+                }
+                //checking to see if password is empty
+                if (TextUtils.isEmpty(password))
+                {
+                    passwordET.setError("Password is Required.");
+                    return;
+                }
+                //checking password length
+                if (password.length() < 6)
+                {
+                    passwordET.setError("Password Must be >= 6 Characters");
+                    return;
+                }
+
+                fAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(LoginActivity.this, "Login Successful ", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getApplicationContext(), TrimesterActivity.class));
+                        }
+                        else {
+                            Toast.makeText(LoginActivity.this, "Error ! " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
             }
         });
 
     }
-
-
 
 }

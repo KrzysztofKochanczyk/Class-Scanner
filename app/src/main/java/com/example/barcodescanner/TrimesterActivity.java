@@ -3,11 +3,9 @@ package com.example.barcodescanner;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,7 +13,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseException;
@@ -41,6 +39,7 @@ public class TrimesterActivity extends AppCompatActivity {
     public class FirebaseHelper {
 
         DatabaseReference dbRef;
+
         Boolean saved;
         ArrayList<course> courses = new ArrayList<>();
         ListView mListView;
@@ -63,7 +62,7 @@ public class TrimesterActivity extends AppCompatActivity {
             else {
                 //otherwise try to push data into firebase
                 try {
-                    dbRef.child("Teacher").push().setValue(cc);
+                    dbRef.child("users").child("teacher1").push().setValue(cc);
                     saved = true;
 
                 } catch (DatabaseException e) {
@@ -75,8 +74,8 @@ public class TrimesterActivity extends AppCompatActivity {
         }
 
         public ArrayList<course> retrieve() {
-            //i believe here we can check to see if the teacher is signed in as a certain teacher or not to enter the proper data
-            dbRef.child("Teacher").addValueEventListener(new ValueEventListener() {
+            //users is a child that needs to now see the userid which is in the database. Each child descends off of another child
+            dbRef.child("users").child(userID).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     courses.clear();
@@ -102,24 +101,26 @@ public class TrimesterActivity extends AppCompatActivity {
                         });
                     }
                 }
-
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
                     Log.d("here", databaseError.getMessage());
                     Toast.makeText(c, "Error " + databaseError.getMessage(), Toast.LENGTH_LONG).show();
                 }
             });
-
             return courses;
         }
     }
 
     Toolbar toolbar;
     ListView listView;
-    DatabaseReference db;
+    DatabaseReference dbREF;
     FirebaseHelper helper;
+    FirebaseAuth mAuth;
+    FirebaseDatabase mFireDB;
+    FirebaseAuth.AuthStateListener mAuthListener;
     myAdapter adapter;
     EditText classNameET, crnET, dayET, timeET;
+    String userID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,19 +129,16 @@ public class TrimesterActivity extends AppCompatActivity {
 
         toolbar = (Toolbar)findViewById(R.id.triTB);
         listView = (ListView)findViewById(R.id.lvTri);
-        db = FirebaseDatabase.getInstance().getReference();
-        helper = new FirebaseHelper(db, this, listView);
 
-        FloatingActionButton fabb = (FloatingActionButton) findViewById(R.id.fabb);
-        fabb.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listView.smoothScrollToPosition(4);
-                displayInputDialog();
-            }
-        });
+        dbREF = FirebaseDatabase.getInstance().getReference();
+        mFireDB = FirebaseDatabase.getInstance();
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = mAuth.getCurrentUser();
+        userID = user.getUid();
+        helper = new FirebaseHelper(dbREF, this, listView);
+
+
         initToolBar();
-        //setupListView();
     }
 
     private void displayInputDialog() {
@@ -206,13 +204,19 @@ public class TrimesterActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
+        listView = (ListView)findViewById(R.id.lvTri);
         if (id == R.id.Logout)
         {
             //incorporate logout function here
             FirebaseAuth.getInstance().signOut();
             startActivity(new Intent(getApplicationContext(),LoginActivity.class));
             finish();
-
+        }
+        if (id == R.id.addToDB)
+        {
+            //pops up the menu to add class manually
+            listView.smoothScrollToPosition(4);
+            displayInputDialog();
         }
 
         return super.onOptionsItemSelected(item);
@@ -222,28 +226,13 @@ public class TrimesterActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Winter");
     }
-    /*setup listview function here*/
-//    private void setupListView() {
-//        String[] clas = getResources().getStringArray(R.array.Class);
-//        String[] course = getResources().getStringArray(R.array.Course);
-//
-//        myAdapter simpleAdap = new myAdapter(this, clas, course);
-//        listView.setAdapter(simpleAdap);
-//
-//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                //we can do a switch case if that makes it easy to push all the information inside of the view in the mainactivity
-//                //which is where the students would get populated
-//                Intent intent = new Intent(TrimesterActivity.this, MainActivity.class);
-//                startActivity(intent);
-//            }
-//        });
-//    }
 
     public class myAdapter extends BaseAdapter {
         Context c;
         ArrayList<course> courses;
+
+        public static final int NO_POSITION = -1;
+
 
         public myAdapter(Context c, ArrayList<course> courses) {
             this.c = c;
@@ -267,7 +256,7 @@ public class TrimesterActivity extends AppCompatActivity {
 
         //inflating cardview here
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(final int position, View convertView, ViewGroup parent) {
             if (convertView == null) {
                 convertView = LayoutInflater.from(c).inflate(R.layout.tri_card, parent, false);
             }
@@ -288,63 +277,19 @@ public class TrimesterActivity extends AppCompatActivity {
             convertView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //we can do a switch case if that makes it easy to push all the information inside of the view in the mainactivity
+                    //switching position to change a string value to be passed that way we
+                    //dont have to use a bunch of code
+
                     //which is where the students would get populated
                     Intent intent = new Intent(TrimesterActivity.this, MainActivity.class);
+                    intent.putExtra("cardPosition", position);
                     startActivity(intent);
+                    System.out.println("Here is the position of it *************  "+position);
                 }
             });
 
             return convertView;
         }
-
-/*original adapter here */
-//        private Context context;
-//        private LayoutInflater layoutInflater;
-//        private TextView classname, course;
-//        private String[] classnameArray;
-//        private String[] courseArray;
-//
-//        public myAdapter(Context context, String[] classname, String[] course) {
-//            context = context;
-//            classnameArray = classname;
-//            courseArray = course;
-//            //layout Inflater allows you to load different layouts in the view
-//            layoutInflater = LayoutInflater.from(context);
-//        }
-//
-//        @Override
-//        public int getCount() {
-//            return classnameArray.length;
-//        }
-//
-//        @Override
-//        public Object getItem(int position) {
-//            return classnameArray[position];
-//        }
-//
-//        @Override
-//        public long getItemId(int position) {
-//            return position;
-//        }
-//
-//        //this entire function basically gives tri_card control to replace the view for its own view
-//        @Override
-//        public View getView(int position, View convertView, ViewGroup parent) {
-//            //if current view is null it takes the present view that is available and inflates
-//            //our card view into list view
-//            if(convertView == null) {
-//                convertView = layoutInflater.inflate(R.layout.tri_card, null);
-//            }
-//
-//            classname = (TextView)convertView.findViewById(R.id.className);
-//            course = (TextView)convertView.findViewById(R.id.course);
-//
-//            classname.setText(classnameArray[position]);
-//            course.setText(courseArray[position]);
-//            return convertView;
-//
-//        }
     }
 
 }

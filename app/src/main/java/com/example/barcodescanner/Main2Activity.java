@@ -22,7 +22,7 @@ public class Main2Activity extends AppCompatActivity implements ZXingScannerView
     //Whatever the camera scans will be put in the Tv1
     @Override
     public void handleResult(Result result) {
-        MainActivity.tv1.setText(result.getText());
+        //MainActivity.tv1.setText(result.getText());
         onBackPressed();
 
     }
